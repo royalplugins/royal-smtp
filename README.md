@@ -4,12 +4,12 @@
 
 **Simple, reliable SMTP and transactional email for WordPress**
 
-[![WordPress](https://img.shields.io/badge/WordPress-5.9+-21759B?style=flat-square&logo=wordpress)](https://wordpress.org/plugins/royal-smtp/)
+[![WordPress](https://img.shields.io/badge/WordPress-5.9+-21759B?style=flat-square&logo=wordpress)](https://royalplugins.com/royal-smtp/)
 [![PHP](https://img.shields.io/badge/PHP-7.4+-777BB4?style=flat-square&logo=php)](https://www.php.net/)
 [![License](https://img.shields.io/badge/License-GPLv2-blue?style=flat-square)](https://www.gnu.org/licenses/gpl-2.0.html)
-[![Version](https://img.shields.io/badge/Version-1.0.0-C9A227?style=flat-square)](https://wordpress.org/plugins/royal-smtp/)
+[![Version](https://img.shields.io/badge/Version-1.0.0-C9A227?style=flat-square)](https://royalplugins.com/royal-smtp/)
 
-[Download on WordPress.org](https://wordpress.org/plugins/royal-smtp/) · [Documentation](https://royalplugins.com/royal-smtp/) · [Royal Plugins](https://royalplugins.com)
+[Download on WordPress.org](https://royalplugins.com/royal-smtp/) · [Documentation](https://royalplugins.com/royal-smtp/) · [Royal Plugins](https://royalplugins.com)
 
 </div>
 
@@ -41,7 +41,7 @@ WordPress uses PHP `mail()` by default, which most hosts block or throttle. Roya
 
 ## Quick Start
 
-1. Install from [WordPress.org](https://wordpress.org/plugins/royal-smtp/) or upload the zip
+1. Install from [WordPress.org](https://royalplugins.com/royal-smtp/) or upload the zip
 2. Go to **Royal SMTP > Settings** in your WordPress admin
 3. Select your mailer and enter your API key
 4. Send a test email to confirm delivery
@@ -65,13 +65,13 @@ Select **Other SMTP** and use these settings:
 
 ## Installation
 
-### From WordPress.org (Recommended)
-1. Go to **Plugins > Add New** in your WordPress admin
-2. Search for "Royal SMTP"
-3. Click **Install Now**, then **Activate**
+### From Royal Plugins (Recommended)
+1. Download from [royalplugins.com/royal-smtp](https://royalplugins.com/royal-smtp/)
+2. Go to **Plugins > Add New > Upload Plugin** in your WordPress admin
+3. Upload the zip and activate
 
 ### Manual Installation
-1. Download the latest release from [WordPress.org](https://wordpress.org/plugins/royal-smtp/)
+1. Download the latest release from [WordPress.org](https://royalplugins.com/royal-smtp/)
 2. Upload to `/wp-content/plugins/royal-smtp/`
 3. Activate through the **Plugins** menu
 
