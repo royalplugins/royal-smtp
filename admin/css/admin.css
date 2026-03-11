@@ -1,0 +1,176 @@
+/**
+ * Royal SMTP Admin Styles
+ */
+
+/* Cards */
+.rsmtp-card {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.rsmtp-card h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+    border-bottom: none;
+    font-size: 1.3em;
+}
+
+.rsmtp-card .form-table {
+    margin-top: 15px;
+}
+
+.rsmtp-card .form-table th {
+    padding-left: 0;
+    width: 200px;
+}
+
+/* Mailer Settings */
+.rsmtp-mailer-settings {
+    border-top: 1px solid #dcdcde;
+    margin-top: 15px;
+    padding-top: 5px;
+}
+
+/* Test Email Result */
+#rsmtp-test-result {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#rsmtp-test-result.success {
+    color: #00a32a;
+}
+
+#rsmtp-test-result.error {
+    color: #d63638;
+}
+
+/* Email Log Page */
+.rsmtp-email-log .rsmtp-stats {
+    margin: 20px 0;
+    display: flex;
+    gap: 20px;
+}
+
+.rsmtp-stat {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 15px 25px;
+    text-align: center;
+}
+
+.rsmtp-stat strong {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.rsmtp-stat-success strong {
+    color: #00a32a;
+}
+
+.rsmtp-stat-error strong {
+    color: #d63638;
+}
+
+/* Filters */
+.rsmtp-filters {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.rsmtp-filters select,
+.rsmtp-filters input[type="search"] {
+    margin: 0;
+}
+
+/* Status badges */
+.rsmtp-status {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.rsmtp-status-sent {
+    background: #d4edda;
+    color: #155724;
+}
+
+.rsmtp-status-failed {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Error message in log */
+.rsmtp-error-message {
+    margin-top: 5px;
+    color: #d63638;
+}
+
+.rsmtp-error-message small {
+    font-style: italic;
+}
+
+/* No logs message */
+.rsmtp-no-logs {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+}
+
+.rsmtp-no-logs .dashicons {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    color: #c3c4c7;
+    margin-bottom: 15px;
+}
+
+.rsmtp-no-logs p {
+    margin: 10px 0 0;
+    color: #50575e;
+}
+
+/* Table columns */
+.rsmtp-email-log .column-date {
+    width: 150px;
+}
+
+.rsmtp-email-log .column-to {
+    width: 200px;
+}
+
+.rsmtp-email-log .column-mailer {
+    width: 100px;
+}
+
+.rsmtp-email-log .column-status {
+    width: 80px;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .rsmtp-card .form-table th {
+        width: auto;
+    }
+
+    .rsmtp-filters {
+        flex-wrap: wrap;
+    }
+
+    .rsmtp-stats {
+        flex-wrap: wrap;
+    }
+}
