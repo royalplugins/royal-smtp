@@ -9,7 +9,7 @@
 [![License](https://img.shields.io/badge/License-GPLv2-blue?style=flat-square)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![Version](https://img.shields.io/badge/Version-1.0.0-C9A227?style=flat-square)](https://royalplugins.com/royal-smtp/)
 
-[Download on WordPress.org](https://royalplugins.com/royal-smtp/) · [Documentation](https://royalplugins.com/royal-smtp/) · [Royal Plugins](https://royalplugins.com)
+[Download](https://royalplugins.com/royal-smtp/) · [Documentation](https://royalplugins.com/support/royal-smtp/) · [Royal Plugins](https://royalplugins.com)
 
 </div>
 
@@ -41,7 +41,7 @@ WordPress uses PHP `mail()` by default, which most hosts block or throttle. Roya
 
 ## Quick Start
 
-1. Install from [WordPress.org](https://royalplugins.com/royal-smtp/) or upload the zip
+1. Download from [royalplugins.com/royal-smtp](https://royalplugins.com/royal-smtp/) and upload the zip
 2. Go to **Royal SMTP > Settings** in your WordPress admin
 3. Select your mailer and enter your API key
 4. Send a test email to confirm delivery
@@ -71,7 +71,7 @@ Select **Other SMTP** and use these settings:
 3. Upload the zip and activate
 
 ### Manual Installation
-1. Download the latest release from [WordPress.org](https://royalplugins.com/royal-smtp/)
+1. Download the latest release from [royalplugins.com/royal-smtp](https://royalplugins.com/royal-smtp/)
 2. Upload to `/wp-content/plugins/royal-smtp/`
 3. Activate through the **Plugins** menu
 
