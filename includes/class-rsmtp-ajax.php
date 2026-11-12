@@ -50,7 +50,7 @@ class RSMTP_Ajax {
      * @return bool
      */
     private function verify_request() {
-        if ( ! current_user_can( 'manage_options' ) ) {
+        if ( ! current_user_can( 'manage_options' ) ) { // audit:multisite-manage-options-safe -- per-site scope: this site's own mail settings and log
             wp_send_json_error( array( 'message' => __( 'Permission denied.', 'royal-smtp' ) ) );
             return false;
         }

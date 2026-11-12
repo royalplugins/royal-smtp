@@ -164,6 +164,11 @@ class RSMTP_Mailer_Mailgun extends RSMTP_Mailer {
             $body['h:Reply-To'] = ! empty( $reply_to['name'] ) ? "{$reply_to['name']} <{$reply_to['email']}>" : $reply_to['email'];
         }
 
+        // Custom headers, such as one-click unsubscribe
+        foreach ( $headers['custom'] as $name => $value ) {
+            $body[ 'h:' . $name ] = $value;
+        }
+
         // Make API request (Mailgun uses form-urlencoded, not JSON)
         $response = wp_remote_post( $this->get_api_url(), array(
             'timeout' => 30,

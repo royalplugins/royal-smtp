@@ -131,6 +131,11 @@ class RSMTP_Mailer_Resend extends RSMTP_Mailer {
             $body['reply_to'] = ! empty( $reply_to['name'] ) ? "{$reply_to['name']} <{$reply_to['email']}>" : $reply_to['email'];
         }
 
+        // Custom headers, such as one-click unsubscribe
+        if ( ! empty( $headers['custom'] ) ) {
+            $body['headers'] = $headers['custom'];
+        }
+
         // Make API request
         $response = $this->api_request( self::API_URL, array(
             'headers' => array(

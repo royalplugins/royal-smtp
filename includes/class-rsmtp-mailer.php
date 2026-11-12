@@ -129,10 +129,12 @@ abstract class RSMTP_Mailer {
             'reply_to'     => array(),
             'from_email'   => '',
             'from_name'    => '',
+            'custom'       => array(),
         );
+        $has_type = false;
 
         if ( empty( $headers ) ) {
-            return $parsed;
+            $headers = array();
         }
 
         if ( is_string( $headers ) ) {
@@ -150,9 +152,8 @@ abstract class RSMTP_Mailer {
 
             switch ( $name ) {
                 case 'content-type':
-                    if ( strpos( $value, 'text/html' ) !== false ) {
-                        $parsed['content_type'] = 'text/html';
-                    }
+                    $has_type               = true;
+                    $parsed['content_type'] = $this->normalize_content_type( $value );
                     if ( preg_match( '/charset=([^\s;]+)/i', $value, $matches ) ) {
                         $parsed['charset'] = $matches[1];
                     }
@@ -175,10 +176,53 @@ abstract class RSMTP_Mailer {
                     $parsed['from_email'] = $from['email'];
                     $parsed['from_name']  = $from['name'];
                     break;
+
+                default:
+                    if ( '' !== $value && 0 === preg_match( '/[^\P{Cc}\t]/u', $value ) && preg_match( '/^[a-z][a-z0-9-]*$/', $name ) && ! in_array( $name, $this->reserved_headers(), true ) ) {
+                        $parsed['custom'][ $this->header_case( $name ) ] = $value;
+                    }
+                    break;
             }
         }
 
+        // Same fallback as wp_mail(): a type set by filter counts when no header sets one.
+        if ( ! $has_type ) {
+            $parsed['content_type'] = $this->normalize_content_type( (string) apply_filters( 'wp_mail_content_type', 'text/plain' ) );
+        }
+
         return $parsed;
+    }
+
+    /**
+     * The two body types mail APIs accept. A multipart type without its own
+     * boundary is an HTML message whose plain-text part PHPMailer would add.
+     *
+     * @param string $value Content type.
+     * @return string text/html or text/plain.
+     */
+    private function normalize_content_type( $value ) {
+        $value = strtolower( $value );
+        if ( false !== strpos( $value, 'text/html' ) ) {
+            return 'text/html';
+        }
+        return false !== strpos( $value, 'multipart/' ) && false === strpos( $value, 'boundary' ) ? 'text/html' : 'text/plain';
+    }
+
+    /**
+     * Headers mail APIs set themselves or refuse.
+     *
+     * @return string[]
+     */
+    private function reserved_headers() {
+        return array( 'mime-version', 'content-transfer-encoding', 'to', 'subject', 'date', 'message-id', 'received', 'dkim-signature', 'return-path', 'sender', 'x-sg-id', 'x-sg-eid' );
+    }
+
+    /**
+     * @param string $name Lowercase header name.
+     * @return string For example list-unsubscribe-post becomes List-Unsubscribe-Post.
+     */
+    private function header_case( $name ) {
+        return implode( '-', array_map( 'ucfirst', explode( '-', $name ) ) );
     }
 
     /**

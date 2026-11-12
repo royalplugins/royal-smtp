@@ -3,7 +3,7 @@
  * Plugin Name: Royal SMTP
  * Plugin URI: https://royalplugins.com/royal-smtp
  * Description: Simple, reliable SMTP and transactional email for WordPress. Supports SendGrid, Brevo, Mailgun, Resend, SMTP.com, and custom SMTP.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Royal Plugins
  * Author URI: https://royalplugins.com
  * License: GPL v2 or later
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'RSMTP_VERSION', '1.0.0' );
+define( 'RSMTP_VERSION', '1.0.1' );
 define( 'RSMTP_PLUGIN_FILE', __FILE__ );
 define( 'RSMTP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'RSMTP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -141,6 +141,9 @@ function rsmtp_get_settings( $key = null, $default = null ) {
         // Logging
         'enable_log'       => true,
         'log_retention'    => 100,
+
+        // Data removal when the plugin is deleted
+        'delete_data_on_uninstall' => false,
     );
 
     $settings = wp_parse_args( $settings, $defaults );

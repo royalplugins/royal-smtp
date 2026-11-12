@@ -151,7 +151,7 @@ class RSMTP_Admin {
         $settings['force_from_name']  = isset( $_POST['force_from_name'] );
 
         // Mailer selection
-        $settings['mailer'] = sanitize_key( $_POST['mailer'] ?? 'other_smtp' );
+        $settings['mailer'] = sanitize_key( wp_unslash( $_POST['mailer'] ?? 'other_smtp' ) );
 
         // SendGrid
         $new_sendgrid_key = sanitize_text_field( wp_unslash( $_POST['sendgrid_api_key'] ?? '' ) );
@@ -171,7 +171,7 @@ class RSMTP_Admin {
             $settings['mailgun_api_key'] = $new_mailgun_key;
         }
         $settings['mailgun_domain'] = sanitize_text_field( wp_unslash( $_POST['mailgun_domain'] ?? '' ) );
-        $settings['mailgun_region'] = sanitize_key( $_POST['mailgun_region'] ?? 'us' );
+        $settings['mailgun_region'] = sanitize_key( wp_unslash( $_POST['mailgun_region'] ?? 'us' ) );
 
         // Resend
         $new_resend_key = sanitize_text_field( wp_unslash( $_POST['resend_api_key'] ?? '' ) );
@@ -189,7 +189,7 @@ class RSMTP_Admin {
         // Other SMTP
         $settings['smtp_host']       = sanitize_text_field( wp_unslash( $_POST['smtp_host'] ?? '' ) );
         $settings['smtp_port']       = absint( $_POST['smtp_port'] ?? 587 );
-        $settings['smtp_encryption'] = sanitize_key( $_POST['smtp_encryption'] ?? 'tls' );
+        $settings['smtp_encryption'] = sanitize_key( wp_unslash( $_POST['smtp_encryption'] ?? 'tls' ) );
         $settings['smtp_auth']       = isset( $_POST['smtp_auth'] );
         $settings['smtp_username']   = sanitize_text_field( wp_unslash( $_POST['smtp_username'] ?? '' ) );
 
@@ -202,6 +202,9 @@ class RSMTP_Admin {
         // Logging
         $settings['enable_log']    = isset( $_POST['enable_log'] );
         $settings['log_retention'] = absint( $_POST['log_retention'] ?? 100 );
+
+        // Data removal on delete (off unless the owner ticks it)
+        $settings['delete_data_on_uninstall'] = isset( $_POST['delete_data_on_uninstall'] );
 
         rsmtp_update_settings( $settings );
         // phpcs:enable WordPress.Security.NonceVerification.Missing

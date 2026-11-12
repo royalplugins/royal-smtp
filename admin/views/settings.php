@@ -177,6 +177,24 @@ $mailers        = RSMTP_Core::instance()->get_mailers();
             </table>
         </div>
 
+        <!-- Data -->
+        <div class="rsmtp-card">
+            <h2><?php esc_html_e( 'Data', 'royal-smtp' ); ?></h2>
+
+            <table class="form-table">
+                <tr>
+                    <th><?php esc_html_e( 'Delete Data on Uninstall', 'royal-smtp' ); ?></th>
+                    <td>
+                        <label>
+                            <input type="checkbox" name="delete_data_on_uninstall" value="1" <?php checked( ! empty( $settings['delete_data_on_uninstall'] ) ); ?>>
+                            <?php esc_html_e( 'Remove all settings and the email log when the plugin is deleted', 'royal-smtp' ); ?>
+                        </label>
+                        <p class="description"><?php esc_html_e( 'Leave this off to keep your settings and log if you delete and reinstall the plugin.', 'royal-smtp' ); ?></p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
         <p class="submit">
             <input type="submit" name="rsmtp_save_settings" class="button button-primary" value="<?php esc_attr_e( 'Save Settings', 'royal-smtp' ); ?>">
         </p>

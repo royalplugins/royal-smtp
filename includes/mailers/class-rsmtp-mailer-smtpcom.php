@@ -167,6 +167,11 @@ class RSMTP_Mailer_SMTPcom extends RSMTP_Mailer {
             'body'       => $body_content,
         );
 
+        // Custom headers, such as one-click unsubscribe
+        if ( ! empty( $headers['custom'] ) ) {
+            $body['custom_headers'] = $headers['custom'];
+        }
+
         // Make API request
         $response = $this->api_request( self::API_URL, array(
             'headers' => array(

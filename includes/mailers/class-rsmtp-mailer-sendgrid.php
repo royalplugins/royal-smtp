@@ -155,6 +155,11 @@ class RSMTP_Mailer_SendGrid extends RSMTP_Mailer {
             }
         }
 
+        // Custom headers, such as one-click unsubscribe
+        if ( ! empty( $headers['custom'] ) ) {
+            $body['headers'] = $headers['custom'];
+        }
+
         // Make API request
         $response = $this->api_request( self::API_URL, array(
             'headers' => array(

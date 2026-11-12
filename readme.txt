@@ -2,9 +2,9 @@
 Contributors: royalpluginsteam
 Tags: smtp, email, sendgrid, brevo, mailgun
 Requires at least: 5.9
-Tested up to: 6.9
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -73,9 +73,21 @@ Yes, all sensitive credentials are stored in your WordPress database using WordP
 
 == Changelog ==
 
+= 1.0.1 =
+* New: Delete Data on Uninstall setting controls whether settings and the email log are removed when the plugin is deleted.
+* Fix: API mailers now send custom email headers and respect the HTML email format.
+
 = 1.0.0 =
 * Initial release
 * Support for SendGrid, Brevo, Mailgun, Resend, SMTP.com
 * Custom SMTP support (Gmail compatible)
 * Email logging with configurable retention
 * Test email functionality
+
+== Upgrade Notice ==
+
+= 1.0.1 =
+Fixes custom email headers and HTML emails on API mailers.
+
+= 1.0.0 =
+Initial release of Royal SMTP. Reliable transactional email delivery for WordPress.
